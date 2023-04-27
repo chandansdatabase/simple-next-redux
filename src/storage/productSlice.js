@@ -18,7 +18,7 @@ export const productSlice = createSlice({
 export const { set } = productSlice.actions
 
 export const productFetch = (filter) => (dispatch) => {
-  fetch('http://192.168.0.196:4000/api/v1/product/fetch')
+  fetch(`${process.env.NEXT_PUBLIC_API_URI}/api/v1/product/fetch`)
   .then(response => response.json())
   .then(res => dispatch(set(res.products)))
   .catch(error => {
